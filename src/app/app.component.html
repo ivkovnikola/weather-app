@@ -1,26 +1,29 @@
 <div class="content flex-container" id="color-container">
   <div class="main">
-    <div class="mb-3 ">
+    <div class="mb-3">
       <div class="input-wrap has-search">
-        <mat-form-field appearance="fill">
-          <mat-label>Favorite food</mat-label>
-          <mat-select [(ngModel)]="selectedValue" name="food">
-            <mat-option *ngFor="let food of foods" [value]="food.value">
-              {{food.viewValue}}
+<!--         <mat-form-field appearance="fill">
+          <mat-select [(value)]="selectedCountry.value" name="food">
+            <mat-option *ngFor="let country of countries" [value]="country.value">
+              {{ country.viewValue }}
             </mat-option>
           </mat-select>
-        </mat-form-field>
+        </mat-form-field> -->
+        
+        <select [(ngModel)]="selectedCountry" class="country-select form-control" >
+          <option *ngFor="let c of countries" [ngValue]="c">{{c.value}}</option>
+        </select>
 
-      <input
-        type="search"
-        class="form-control"
-        placeholder="Please enter your location"
-        aria-label="Location"
-        aria-describedby="basic-addon1"
-        [(ngModel)]="city"
-        (blur)="onBlurMethod()"
-      />
-    </div>
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Please enter your location"
+          aria-label="Location"
+          aria-describedby="basic-addon1"
+          [(ngModel)]="city"
+          (blur)="onBlurMethod()"
+        />
+      </div>
     </div>
 
     <router-outlet></router-outlet>
