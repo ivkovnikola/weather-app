@@ -48,6 +48,7 @@ export class WeatherWidgetComponent implements OnInit {
     if (today.getMonth() === futureDay.getMonth()) {
       return (
         monthNames[today.getMonth()] +
+        ' ' +
         today.getDate() +
         ' - ' +
         futureDay.getDate()
@@ -55,9 +56,11 @@ export class WeatherWidgetComponent implements OnInit {
     } else {
       return (
         monthNames[today.getMonth()] +
+        ' ' +
         today.getDate() +
         ' - ' +
         monthNames[futureDay.getMonth()] +
+        ' ' +
         futureDay.getDate()
       );
     }
@@ -86,15 +89,15 @@ export class WeatherWidgetComponent implements OnInit {
     }
     const index = Math.round(value / 10) + 4;
 
-    document.getElementById('color-container')?.style = this.calculateGradient(
-      index
-    );
+    document.getElementById(
+      'color-container'
+    )?.style.backgroud = this.calculateGradient(index);
   }
 
   calculateGradient(index: number): string {
     let startIndex, middleIndex;
     if (index === 8 || index === 0) {
-      return 'background:' + colors[index];
+      return colors[index];
     } else if (index === 1) {
       startIndex = 0;
       middleIndex = 1;
@@ -102,7 +105,6 @@ export class WeatherWidgetComponent implements OnInit {
       startIndex = index - 2;
       middleIndex = index - 1;
     }
-    if (index)
-      return `background: linear-gradient(130.54deg, ${colors[startIndex]} -33.02%, ${colors[middleIndex]} 52.01%, ${colors[index]} 137.04%);`;
+    return `linear-gradient(130.54deg, ${colors[startIndex]} -33.02%, ${colors[middleIndex]} 52.01%, ${colors[index]} 137.04%);`;
   }
 }

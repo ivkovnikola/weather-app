@@ -1,7 +1,7 @@
 <div class= "container" *ngIf="data$ | async as data">
     <div class="overview">
         {{dateRange}}
-        <app-celsius-display [temperature] = "averageTemperature">
+        <app-celsius-display [temperature] = "averageTemperature" [bigWidget] = true>
 
         </app-celsius-display>
     </div>

@@ -8,6 +8,7 @@ import { Component, Input, OnInit } from '@angular/core';
 export class CelsiusDisplayComponent implements OnInit {
   @Input() temperature: number;
   @Input() day: string;
+  @Input() bigWidget?: boolean;
 
   constructor() {}
 

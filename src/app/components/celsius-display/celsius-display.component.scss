@@ -23,11 +23,20 @@
   line-height: 32px;
   letter-spacing: 0em;
   text-align: right;
-  color: #FFFFFF;
+  color: #ffffff;
 }
 
 .center {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.big-value {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 120px;
+  line-height: 120px;
+  color: #ffffff;
+  margin-top: 50px;
 }

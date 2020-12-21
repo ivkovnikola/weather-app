@@ -3,7 +3,7 @@
         <span class="day">{{day}} </span>
     </div>
     <div class="center">
-        <span class="value">{{temperature | number : '1.0-0'}}</span>
+        <span [ngClass]="bigWidget ? 'big-value' : 'value'">{{temperature | number : '1.0-0'}}</span>
         <span class="sign">°C</span>
     </div>
 </div>
