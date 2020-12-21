@@ -68,10 +68,10 @@ export class WeatherWidgetComponent implements OnInit {
 
   getAverageTemperature(value: WeatherForecast): void {
     let sum = 0;
-    for (let i = 0; i < 7; i++) {
+    for (let i = 0; i < 10; i++) {
       sum += value.data[i].temp;
     }
-    const calculated = parseInt(sum / 7);
+    const calculated: number = Math.round(sum / 10);
     this.averageTemperature = calculated;
     this.changeBackground(calculated);
   }
@@ -89,9 +89,10 @@ export class WeatherWidgetComponent implements OnInit {
     }
     const index = Math.round(value / 10) + 4;
 
-    document.getElementById(
-      'color-container'
-    )?.style.backgroud = this.calculateGradient(index);
+    const container = document.getElementById('color-container');
+    if (container) {
+      container.style.background = this.calculateGradient(index);
+    }
   }
 
   calculateGradient(index: number): string {
@@ -105,6 +106,7 @@ export class WeatherWidgetComponent implements OnInit {
       startIndex = index - 2;
       middleIndex = index - 1;
     }
-    return `linear-gradient(130.54deg, ${colors[startIndex]} -33.02%, ${colors[middleIndex]} 52.01%, ${colors[index]} 137.04%);`;
+    const klasa = `linear-gradient(130.54deg, ${colors[startIndex]} -33.02%, ${colors[middleIndex]} 52.01%, ${colors[index]} 137.04%)`;
+    return klasa;
   }
 }
