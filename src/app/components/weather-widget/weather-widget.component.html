@@ -1,0 +1,8 @@
+<div *ngIf="data$ | async as data">
+    {{data?.data[0].temp}}
+    {{data}}
+
+    <div class="item active" *ngFor="let day of data.data | slice:0:6">
+        {{day.temp}} 
+    </div>
+</div>
