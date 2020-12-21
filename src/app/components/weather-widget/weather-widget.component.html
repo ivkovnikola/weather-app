@@ -1,8 +1,13 @@
 <div *ngIf="data$ | async as data">
-    {{data?.data[0].temp}}
-    {{data}}
-
-    <div class="item active" *ngFor="let day of data.data | slice:0:6">
-        {{day.temp}} 
+    <div class="overviw">
+        {{dateRange}}
+        {{averageTemperature}}
     </div>
+  <div class="row">
+    <div class="days" *ngFor="let day of data.data | slice: 0:7">
+      <div class="day">
+        {{ day.temp | number: '1.0-0' }}
+      </div>
+    </div>
+  </div>
 </div>

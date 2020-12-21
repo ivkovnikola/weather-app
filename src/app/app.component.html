@@ -1,18 +1,20 @@
-<div class="content">
-  <div class="input-group mb-3">
-    <div class="input-group-prepend">
-      <span class="input-group-text" id="basic-addon1">@</span>
+<div class="content flex-container">
+  <div class="row">
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="basic-addon1">@</span>
+      </div>
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Enter Location"
+        aria-label="Username"
+        aria-describedby="basic-addon1"
+        [(ngModel)]="city"
+        (blur)="onBlurMethod()"
+      />
     </div>
-    <input
-      type="text"
-      class="form-control"
-      placeholder="Enter Location"
-      aria-label="Username"
-      aria-describedby="basic-addon1"
-      [(ngModel)]="city"
-      (blur)="onBlurMethod()"
-    />
+
+    <router-outlet></router-outlet>
   </div>
-  <br />
-  <router-outlet></router-outlet>
 </div>
