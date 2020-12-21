@@ -106,7 +106,6 @@ export class WeatherWidgetComponent implements OnInit {
       startIndex = index - 2;
       middleIndex = index - 1;
     }
-    const klasa = `linear-gradient(130.54deg, ${colors[startIndex]} -33.02%, ${colors[middleIndex]} 52.01%, ${colors[index]} 137.04%)`;
-    return klasa;
+    return `linear-gradient(130.54deg, ${colors[startIndex]} -33.02%, ${colors[middleIndex]} 52.01%, ${colors[index]} 137.04%)`;
   }
 }

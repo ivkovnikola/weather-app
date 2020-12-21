@@ -70,19 +70,40 @@
   padding: 20px;
   width: 25%;
   display: flex;
+
+  @media all and (max-width: 1200px) {
+      width: 50%;
+  }
+  @media all and (max-width: 700px) {
+    width: 90%;
 }
+}
+
+
 
 input {
   margin-bottom: 0;
   background: url(../assets/search-icon.png) no-repeat scroll 7px 7px;
   background-position: 98% 50%;
+  padding-right: 30px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .country-select {
     margin-right: 20px;
     width: 100px;
     margin-bottom: 0;
-    background: url(../assets/flags/germany.ico) no-repeat scroll 7px 7px;
     padding-left: 30px;
-    background-position: 10% 60%;
+    background-position: 10% 60% !important;
+}
+
+.option-style {
+    margin-right: 20px;
+    width: 100px;
+    margin-bottom: 0;
+    background: url(../assets/flags/de.ico) no-repeat scroll 7px 7px;
+    padding-left: 30px;
+    background-position: 10% 60% !important;
 }

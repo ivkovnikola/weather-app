@@ -2,16 +2,18 @@
   <div class="main">
     <div class="mb-3">
       <div class="input-wrap has-search">
-<!--         <mat-form-field appearance="fill">
-          <mat-select [(value)]="selectedCountry.value" name="food">
-            <mat-option *ngFor="let country of countries" [value]="country.value">
-              {{ country.viewValue }}
-            </mat-option>
-          </mat-select>
-        </mat-form-field> -->
-        
-        <select [(ngModel)]="selectedCountry" class="country-select form-control" >
-          <option *ngFor="let c of countries" [ngValue]="c">{{c.value}}</option>
+        <select
+          [(ngModel)]="selectedCountry"
+          class="country-select form-control"
+          id="country-select"
+          (ngModelChange)="countrySelected()"
+        >
+          <option class="option-style"
+            *ngFor="let c of countries"
+            [ngValue]="c"
+          >
+            {{ c.viewValue }}
+          </option>
         </select>
 
         <input
