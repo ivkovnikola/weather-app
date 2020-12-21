@@ -41,6 +41,8 @@ export class WeatherWidgetComponent implements OnInit {
     this.data$.subscribe((val) => this.getAverageTemperature(val));
   }
 
+  //get date range, 10 days from today
+  //must check if the future date is in next month, if so display different format
   getDateRange(): string {
     const today: Date = new Date();
     const futureDay: Date = new Date();
@@ -80,6 +82,8 @@ export class WeatherWidgetComponent implements OnInit {
     return dayNames[value];
   }
 
+  // calculate the apropriate collor gradient
+  // will map range from [-40,40] degrees to one of 9 defined collors based on index
   changeBackground(value: number): void {
     if (value > 40) {
       value = 40;
@@ -95,6 +99,8 @@ export class WeatherWidgetComponent implements OnInit {
     }
   }
 
+  // select top color as last parameter and gradient, and take two collors before
+  // if there are not two collors before last one, then there is no gradient, or only one step
   calculateGradient(index: number): string {
     let startIndex, middleIndex;
     if (index === 8 || index === 0) {

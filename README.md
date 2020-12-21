@@ -1,5 +1,9 @@
 # WeatherApp
 
+Small weather app, using weatherbit API to fetch data, display average temperature for next days, and daily temperature for next 7 days.
+
+Allows for user to select a country from predefined array, and 
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.5.
 
 ## Development server

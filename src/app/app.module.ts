@@ -7,9 +7,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { WeatherWidgetComponent } from './components/weather-widget/weather-widget.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { CelsiusDisplayComponent } from './components/celsius-display/celsius-display.component';
+import { HttpErrorInterceptor } from './service/http-error,interceptors';
 
 const routes: Routes = [
   {
@@ -33,7 +34,13 @@ const routes: Routes = [
     HttpClientModule,
     CommonModule,
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HttpErrorInterceptor,
+      multi: true,
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
