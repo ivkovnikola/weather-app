@@ -1,11 +1,9 @@
-<div class="content flex-container">
-  <div class="row">
-    <div class="input-group mb-3">
-      <div class="input-group-prepend">
-        <span class="input-group-text" id="basic-addon1">@</span>
-      </div>
+<div class="content flex-container" id="color-container">
+  <div class="main">
+    <div class="mb-3 ">
+      <div class="input-wrap">
       <input
-        type="text"
+        type="search"
         class="form-control"
         placeholder="Enter Location"
         aria-label="Username"
@@ -13,6 +11,7 @@
         [(ngModel)]="city"
         (blur)="onBlurMethod()"
       />
+    </div>
     </div>
 
     <router-outlet></router-outlet>

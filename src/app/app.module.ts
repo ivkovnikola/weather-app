@@ -10,6 +10,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { WeatherWidgetComponent } from './components/weather-widget/weather-widget.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
+import { CelsiusDisplayComponent } from './components/celsius-display/celsius-display.component';
 
 const routes: Routes = [
   {
@@ -22,7 +23,7 @@ const routes: Routes = [
   },
 ];
 @NgModule({
-  declarations: [AppComponent, WeatherWidgetComponent],
+  declarations: [AppComponent, WeatherWidgetComponent, CelsiusDisplayComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

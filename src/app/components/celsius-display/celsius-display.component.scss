@@ -1,0 +1,33 @@
+.value {
+  font-size: 20px;
+}
+
+.sign {
+  font-size: 10px;
+}
+
+.day {
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 24px;
+  letter-spacing: 0.06em;
+  text-align: center;
+}
+
+.value,
+.sign {
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 32px;
+  letter-spacing: 0em;
+  text-align: right;
+  color: #FFFFFF;
+}
+
+.center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

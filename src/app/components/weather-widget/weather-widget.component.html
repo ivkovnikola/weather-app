@@ -1,12 +1,14 @@
-<div *ngIf="data$ | async as data">
-    <div class="overviw">
+<div class= "container" *ngIf="data$ | async as data">
+    <div class="overview">
         {{dateRange}}
-        {{averageTemperature}}
+        <app-celsius-display [temperature] = "averageTemperature">
+
+        </app-celsius-display>
     </div>
-  <div class="row">
-    <div class="days" *ngFor="let day of data.data | slice: 0:7">
+  <div class="days-part">
+    <div class="days" *ngFor="let day of data.data | slice: 0:7; let i = index">
       <div class="day">
-        {{ day.temp | number: '1.0-0' }}
+        <app-celsius-display [temperature] = "day?.temp" [day]="getDayOfWeek(i)"></app-celsius-display>
       </div>
     </div>
   </div>

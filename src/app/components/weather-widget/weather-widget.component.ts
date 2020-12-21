@@ -4,7 +4,7 @@ import { WeatherService } from 'src/app/service/weather.service';
 import { map, filter, concatMap, tap } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import { WeatherForecast } from 'src/app/model/weather-forecast';
-import { monthNames } from 'src/app/utils/common';
+import { colors, dayNames, monthNames } from 'src/app/utils/common';
 
 @Component({
   selector: 'app-weather-widget',
@@ -16,7 +16,7 @@ export class WeatherWidgetComponent implements OnInit {
   loading = false;
   dateRange: string;
   tempValues: WeatherForecast;
-  averageTemperature: number;
+  averageTemperature = 0;
 
   constructor(
     private weatherService: WeatherService,
@@ -44,7 +44,7 @@ export class WeatherWidgetComponent implements OnInit {
   getDateRange(): string {
     const today: Date = new Date();
     const futureDay: Date = new Date();
-    futureDay.setDate(futureDay.getDate() + 7);
+    futureDay.setDate(futureDay.getDate() + 10);
     if (today.getMonth() === futureDay.getMonth()) {
       return (
         monthNames[today.getMonth()] +
@@ -63,11 +63,46 @@ export class WeatherWidgetComponent implements OnInit {
     }
   }
 
-  getAverageTemperature(value: WeatherForecast) {
+  getAverageTemperature(value: WeatherForecast): void {
     let sum = 0;
     for (let i = 0; i < 7; i++) {
       sum += value.data[i].temp;
     }
-    this.averageTemperature = parseInt(sum / 7);
+    const calculated = parseInt(sum / 7);
+    this.averageTemperature = calculated;
+    this.changeBackground(calculated);
+  }
+
+  getDayOfWeek(value: number): string {
+    return dayNames[value];
+  }
+
+  changeBackground(value: number): void {
+    if (value > 40) {
+      value = 40;
+    }
+    if (value < -40) {
+      value = -40;
+    }
+    const index = Math.round(value / 10) + 4;
+
+    document.getElementById('color-container')?.style = this.calculateGradient(
+      index
+    );
+  }
+
+  calculateGradient(index: number): string {
+    let startIndex, middleIndex;
+    if (index === 8 || index === 0) {
+      return 'background:' + colors[index];
+    } else if (index === 1) {
+      startIndex = 0;
+      middleIndex = 1;
+    } else {
+      startIndex = index - 2;
+      middleIndex = index - 1;
+    }
+    if (index)
+      return `background: linear-gradient(130.54deg, ${colors[startIndex]} -33.02%, ${colors[middleIndex]} 52.01%, ${colors[index]} 137.04%);`;
   }
 }
